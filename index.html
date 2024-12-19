@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMoody Cafe</title>
+    <link rel="stylesheet" href="cafe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="admin_login.html" class="admin-logo">
+                <img src="images/computer-icons-login-user-system-administrator-image-admin-thumbnail-removebg-preview.png" alt="Admin Logo" />
+            </a>
+            <h1>FreshMoody Cafe</h1>
+            <div class="user-options">
+                <a href="login.html"><i class="fas fa-user"></i></a> 
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                          
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Bienvenido a FreshMoody Cafe</h2>
+            <p>Disfruta de nuestras delicias heladas y refrescantes.</p>
+           
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="container">
+            <h2>Categorías Destacadas</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <img src="images/smod.png" alt="Smoothies">
+                    <h3>Smoothies</h3>
+                </div>
+                <div class="category-card">
+                    <img src="images/milkshake.png" alt="Milkshakes">
+                    <h3>Milkshakes</h3>
+                </div>
+                <div class="category-card">
+                    <img src="images/boba.png" alt="Boba Tea">
+                    <h3>Boba Tea</h3>
+                </div>
+                <div class="category-card">
+                    <img src="images/oreo.png" alt="Ice Cream">
+                    <h3>Ice Cream</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-sellers">
+        <div class="container">
+            <h2>Productos Más Vendidos</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="images/italian.png" alt="Sandwich">
+                    <h3>Coreleone</h3>
+                    <p>$5.99</p>
+                    <a href="#" class="btn bubbly-button" onclick="addToCart('Coreleone', 1, 10.00, 'images/italian.png')">Comprar</a>
+
+                </div>
+                <div class="product-card">
+                    <img src="images/coldbrew.png" alt="Café">
+                    <h3>Cold Brew</h3>
+                    <p>$3.99</p>
+                    <a href="#" class="btn bubbly-button" onclick="addToCart('Cold Brew', 1, 3.99, 'images/coldbrew.png')">Comprar</a>
+
+                </div>
+                <div class="product-card">
+                    <img src="images/apple.png" alt="Helado">
+                    <h3>Helado de Manzana</h3>
+                    <p>$2.99</p>
+                    <a href="#" class="btn bubbly-button" onclick="addToCart('Helado de Manzana', 1, 2.99, 'images/apple.png')">Comprar</a>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="db.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    <script>
+        function addToCart(productName, quantity, price, productImg) {
+    const userId = sessionStorage.getItem('userId');
+    if (!userId) {
+        alert('Please log in to add items to your cart');
+        return;
+    }
+
+    fetch('http://localhost:3000/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            productName: productName,
+            quantity: quantity,
+            price: price,
+            productImg: productImg
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Success:', data);
+        alert('Producto añadido al carrito!');
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('Error al añadir el producto al carrito');
+    });
+}
+    </script>
+</body>
+</html>

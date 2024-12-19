@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMoody Cafe - Billing</title>
+    <link rel="stylesheet" href="cafe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>FreshMoody Cafe</h1>
+            <div class="user-options">
+                <a href="login.html"><i class="fas fa-user"></i></a>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container">
+        <h2 class="billing-details">Billing Details</h2>
+    
+        <div class="order-summary">
+            <h3 class="your-order">Your Order</h3>
+            <div id="order-items">
+                <!-- Order items will be loaded here -->
+            </div>
+            <div class="total-price" id="total-price">
+                Total: $0.00
+            </div>
+        </div>
+    
+        <h3 class="choose-order-type">Choose Your Order Type</h3>
+        <label class="order-type-label">
+            <input type="radio" name="orderType" value="pickup" id="pickup" checked> Pick Up
+        </label>
+        <label class="order-type-label">
+            <input type="radio" name="orderType" value="paynow" id="paynow"> Pay Now
+        </label>
+    
+        <form id="order-form" enctype="multipart/form-data">
+            <div id="payment-section" style="display: none;">
+                <h3 class="payment-info">Payment Information</h3>
+                <label class="payment-label">
+                    Upload Receipt: 
+                    <input type="file" id="payment-image" name="paymentImage" accept="image/*">
+                </label>
+            </div>
+            <button type="button" id="submit-order">Submit Order</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FreshMoody Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('http://localhost:3000/cart')
+                .then(response => response.json())
+                .then(cartItems => {
+                    const orderItemsDiv = document.getElementById('order-items');
+                    const totalPriceDiv = document.getElementById('total-price');
+                    
+                    if (cartItems.length === 0) {
+                        orderItemsDiv.innerHTML = "<p>Your cart is empty.</p>";
+                        totalPriceDiv.style.display = "none";
+                    } else {
+                        let totalPrice = 0;
+
+                        cartItems.forEach(item => {
+                            const itemElement = document.createElement('div');
+                            itemElement.className = 'order-item';
+                            totalPrice += item.Price * item.Quantity;
+
+                            itemElement.innerHTML = `
+                                <img src="${item.ProductImg}" alt="${item.ProductName}">
+                                <div class="order-item-details">
+                                    <h3>${item.ProductName}</h3>
+                                    <p>Price: $${item.Price.toFixed(2)}</p>
+                                    <p>Quantity: ${item.Quantity}</p>
+                                </div>
+                            `;
+                            orderItemsDiv.appendChild(itemElement);
+                        });
+
+                        totalPriceDiv.innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching cart items:', error);
+                });
+        });
+
+        const orderTypeRadios = document.getElementsByName('orderType');
+        const paymentSection = document.getElementById('payment-section');
+        const submitOrderButton = document.getElementById('submit-order');
+        const orderForm = document.getElementById('order-form');
+
+        orderTypeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                paymentSection.style.display = radio.value === 'paynow' ? 'block' : 'none';
+            });
+        });
+
+        submitOrderButton.addEventListener('click', () => {
+    const orderType = document.querySelector('input[name="orderType"]:checked').value;
+    const totalAmount = document.getElementById('total-price').innerText.split('$')[1].trim();
+
+    // Create an array of cart items from the DOM or from the cart data
+    const cartItems = [];
+    document.querySelectorAll('.order-item').forEach(item => {
+        const productName = item.querySelector('h3').innerText;
+        const quantity = item.querySelector('p:nth-child(3)').innerText.split(':')[1].trim();
+        const price = item.querySelector('p:nth-child(2)').innerText.split('$')[1].trim();
+        const productImg = item.querySelector('img').src;
+
+        cartItems.push({
+            ProductName: productName,
+            Quantity: parseInt(quantity),
+            Price: parseFloat(price),
+            ProductImg: productImg
+        });
+    });
+
+    const formData = new FormData(orderForm);
+    formData.append('orderType', orderType);
+    formData.append('totalAmount', totalAmount);
+    formData.append('cartItems', JSON.stringify(cartItems));
+
+    fetch('http://localhost:3000/submit-order', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        if (orderType === 'paynow' && data.paymentImage) {
+            alert('Payment image uploaded successfully.');
+        }
+        window.location.href = '/';
+    })
+    .catch(error => {
+        console.error('Error placing order:', error);
+        alert('Error placing order.');
+    });
+});
+
+    </script>
+</body>
+</html>

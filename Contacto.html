@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Vive Experiencias</title>
+    <link rel="stylesheet" href="cafe.css"> 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init({
+                publicKey: "FJJ1LfceQS-7LeHyL",
+            });
+        })();
+    </script>
+</head>
+<body>
+
+   
+
+    <header>
+        <div class="container">
+            <a href="admin_login.html" class="admin-logo">
+                <img src="images/computer-icons-login-user-system-administrator-image-admin-thumbnail-removebg-preview.png" alt="Admin Logo" />
+            </a>
+            <h1>FreshMoody Cafe - Contact Page</h1>
+            <div class="user-options">
+                <a href="login.html"><i class="fas fa-user"></i></a> 
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                          
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Contact Us!</h2>
+            <form id="test-form">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="comments">Comments:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+   
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+   
+
+    <script src="mail.js"></script>
+</body>
+</html>

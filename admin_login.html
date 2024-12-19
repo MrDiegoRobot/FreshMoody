@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - FreshMoody Cafe</title>
+    <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Login</h1>
+            <div class="user-options">
+                <a href="login.html"><i class="fas fa-user"></i></a> 
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a> 
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="menu.html">Menú</a></li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="login-container">
+        <div class="login-form">
+            <h2>Admin Login</h2>
+            <form id="admin-login-form">
+                <label for="admin-username">Username</label>
+                <input type="text" id="admin-username" name="username" required>
+                <label for="admin-password">Password</label>
+                <input type="password" id="admin-password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById('admin-login-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const username = document.getElementById('admin-username').value;
+            const password = document.getElementById('admin-password').value;
+            try {
+                const response = await fetch('/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    alert(data.message);
+                    sessionStorage.setItem('adminLoggedIn', 'true');
+                    sessionStorage.setItem('adminId', data.adminId);
+                    window.location.href = 'admin_dashboard.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error during admin login:', error);
+            }
+        });
+    </script>
+</body>
+</html>

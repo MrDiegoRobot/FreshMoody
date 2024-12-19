@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="cafe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Admin Dashboard</h1>
+            <div class="user-options">
+                <a href="login.html"><i class="fas fa-user"></i></a> 
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a> 
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="menu.html">Menú</a></li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="dashboard-container">
+        <div class="dashboard-actions">
+            <button id="view-orders" class="dashboard-btn">View Orders</button>
+            <button id="manage-users" class="dashboard-btn">Manage Users</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FreshMoody Cafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Button event listeners
+        document.getElementById('view-orders').addEventListener('click', () => {
+            window.location.href = 'orders.html'; // Redirect to View Orders page
+        });
+
+        document.getElementById('manage-users').addEventListener('click', () => {
+            window.location.href = 'manegeUsers.html'; // Redirect to Manage Users page
+        });
+    </script>
+</body>
+</html>

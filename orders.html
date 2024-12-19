@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" href="cafe.css">
+</head>
+<body>
+    <header>
+        <h1>All Orders</h1>
+    </header>
+    <main>
+        <table id="orders-table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User ID</th>
+                    <th>Total Amount</th>
+                    <th>Order Type</th>
+                    <th>Order State</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Orders will be dynamically loaded -->
+            </tbody>
+        </table>
+
+        <!-- Modal for displaying order items -->
+        <div id="order-items-modal" style="display: none;">
+            <h2>Order Items</h2>
+            <table id="order-items-table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Order items will be dynamically loaded -->
+                </tbody>
+            </table>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </main>
+
+    <script>
+       document.addEventListener('DOMContentLoaded', () => {
+    fetch('/orders')
+        .then(response => response.json())
+        .then(orders => {
+            const ordersTableBody = document.querySelector('#orders-table tbody');
+            orders.forEach(order => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${order.OrderId}</td>
+                    <td>${order.UserId}</td>
+                    <td>$${order.TotalAmount.toFixed(2)}</td>
+                    <td>${order.OrderType}</td>
+                    <td>${order.OrderState}</td>
+                    <td>${new Date(order.CreatedAt).toLocaleString()}</td>
+                    <td>
+                        <select class="order-state" data-order-id="${order.OrderId}">
+                            <option value="In Progress" ${order.OrderState === 'In Progress' ? 'selected' : ''}>In Progress</option>
+                            <option value="Complete" ${order.OrderState === 'Complete' ? 'selected' : ''}>Complete</option>
+                            <option value="Canceled" ${order.OrderState === 'Canceled' ? 'selected' : ''}>Canceled</option>
+                        </select>
+                    </td>
+                `;
+                
+                // Prevent opening order items when clicking the dropdown
+                const selectElement = row.querySelector('.order-state');
+                selectElement.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Prevent the row click from being triggered
+                });
+
+                // Event listener for when the dropdown value changes
+                row.querySelector('.order-state').addEventListener('change', (event) => {
+                    const orderId = event.target.getAttribute('data-order-id');
+                    const newState = event.target.value;
+                    updateOrderState(orderId, newState);
+                });
+
+                // Event listener for opening order items
+                row.addEventListener('click', () => fetchOrderItems(order.OrderId));
+
+                ordersTableBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error fetching orders:', error));
+});
+
+
+        function fetchOrderItems(orderId) {
+            fetch(`/orders/${orderId}/items`)
+                .then(response => response.json())
+                .then(items => {
+                    const itemsTableBody = document.querySelector('#order-items-table tbody');
+                    itemsTableBody.innerHTML = '';
+                    items.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.ProductName}</td>
+                            <td>${item.Quantity}</td>
+                            <td>$${item.Price.toFixed(2)}</td>
+                        `;
+                        itemsTableBody.appendChild(row);
+                    });
+                    document.getElementById('order-items-modal').style.display = 'block';
+                })
+                .catch(error => console.error('Error fetching order items:', error));
+        }
+
+        function closeModal() {
+            document.getElementById('order-items-modal').style.display = 'none';
+        }
+
+        function updateOrderState(orderId, newState) {
+            fetch(`/update-order-state/${orderId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ state: newState })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Order state updated successfully');
+                } else {
+                    alert('Failed to update order state');
+                }
+            })
+            .catch(error => console.error('Error updating order state:', error));
+        }
+    </script>
+</body>
+</html>
