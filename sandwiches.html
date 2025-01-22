@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Smoothies Section -->
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/logosan.png" alt="Smoothie Logo">
+        </div>
+        <h1>Sandwiches</h1>
+       
+    </section>
+
+    <section class="menu-container">
+        <div class="menu-item">
+            <h2>Corleone</h2>
+            <p>Green Pesto, Fresh Tomatoes, Buffalo Mozzarella Cheese, Sun-dried Tomatoes, and Olive Oil on a Ciabatta Bread.</p>
+            <p class="price">₡5800</p>
+        </div>
+        <div class="menu-item">
+            <h2>Buffalo Cheese Chicken</h2>
+            <p>Chicken and cheese sandwiches with buffalo sauce, accompanied by carrot, celery strips, and ranch dressing for dipping.</p>
+            <p class="price">₡5200</p>
+        </div>
+        <div class="menu-item">
+            <h2>Cubanito</h2>
+            <p>Slow-cooked and marinated Cuban-style Pork, Swiss Cheese, Mustard, and Pickles on a Brioche Bun.</p>
+            <p class="price">₡5200</p>
+        </div>
+        <div class="menu-item">
+            <h2>Mexicano</h2>
+            <p>Guava Wood Smoked Pork, seasoned with Chile Morita and Mexican Red Sauce. Served with BBQ Sauce, Slaw, and Pickled Onions (optional) on a Brioche Bun.</p>
+            <p class="price">₡4900</p>
+        </div>
+        <div class="menu-item">
+            <h2>Italian Meatball</h2>
+            <p>Italian Seasoned Meatballs, Parmesan Cheese, cooked in Tomato Sauce with Basil and Oregano on a Ciabatta Bread with Melted Mozzarella Cheese and Dipping Sauce Reina.</p>
+            <p class="price">₡5000</p>
+        </div>
+        <div class="menu-item">
+            <h2>Bam Mi (from Vietnam)</h2>
+            <p>Grilled Pork Belly marinated in Asian spices, presented on a Ciabatta Bread with Cucumbers, Fresh Cilantro, Carrot, Daikon Pickles, and a characteristic spicy sauce.</p>
+            <p class="price">₡5200</p>
+        </div>
+    </section>
+
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

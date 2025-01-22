@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Smoothies Section -->
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/logoice.png" alt="Smoothie Logo">
+        </div>
+        <h1>Ice Cream</h1>
+       
+    </section>
+
+    <section class="menu-container">
+        <div class="menu-item">
+            <h2>Pie de manzana</h2>
+            <p>Helado de vainilla, trozos de galleta, tarta de manzana y crema.</p>
+            <p class="price">₡3200</p>
+        </div>
+        <div class="menu-item">
+            <h2>Banana Mix</h2>
+            <p>Almendras tostadas con vainilla, plátanos y caramelo.</p>
+            <p class="price">₡2900</p>
+        </div>
+        <div class="menu-item">
+            <h2>Chocolate</h2>
+            <p>Helado de chocolate, chispas de chocolate, brownie y dulce de azúcar.</p>
+            <p class="price">₡3000</p>
+            
+        </div>
+        <div class="menu-item">
+            <h2>Banana y fresa</h2>
+            <p>Galletas de mantequilla con helado de fresa, chispas de chocolate blanco, fresas y plátano.</p>
+            <p class="price">₡2900</p>
+            
+        </div>
+        <div class="menu-item">
+            <h2>Oreo Supremo</h2>
+            <p>Helado de vainilla, chips de chocolate, Oreo y crema batida.</p>
+            <p class="price">₡2800</p>
+        </div>
+        <div class="menu-item">
+            <h2>Coffee Lovers</h2>
+            <p>Helado de café, almendras tostadas, topping de caramelo y chispas de chocolate.</p>
+            <p class="price">₡3200</p>
+        </div>
+        <div class="menu-item">
+            <h2>Cookie Monster</h2>
+            <p>Masa para galletas con chispas de chocolate y helado de vainilla, topping de caramelo.</p>
+            <p class="price">₡2900</p>
+        </div>
+        <div class="menu-item">
+            <h2>Bad Bunny</h2>
+            <p>Helado de vainilla, Nutella, Ferrero Rocher y crema batida.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Banana Split</h2>
+            <p>Helado de vainilla, chocolate, fresa, plátanos, dulce de chocolate y crema.</p>
+            <p class="price">₡3000</p>
+        </div>
+        <div class="menu-item">
+            <h2>Berry Good My Friend</h2>
+            <p>Galleta de mantequilla con helado de vainilla, fresas, arándanos y frambuesas.</p>
+            <p class="price">₡3000</p>
+        </div>
+        <div class="menu-item">
+            <h2>Ice Cream Cone</h2>
+            <p>Helado de tu elección servido en un cono clásico.</p>
+            <p class="price">₡1500 - 2 Scoops</p>
+            <p class="price">₡3000 - 4 Scoops</p>
+        </div>
+    </section>
+
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

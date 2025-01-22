@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/coffeologo.png" alt="Smoothie Logo">
+        </div>
+        <h1>Coffee</h1>
+       
+    </section>
+
+    <section class="menu-container">
+        <!-- Hot Coffee Section -->
+        <div class="menu-section">
+            <h2>Café Caliente</h2>
+            <div class="menu-item">
+                <h2>Expresso</h2>
+                <p> </p>
+                <p class="price">₡1800</p>
+                
+            </div>
+            <div class="menu-item">
+                <h2>Latte o Capuccino</h2>
+                <p> </p>
+                <p class="price">₡2000</p>
+            </div>
+            <div class="menu-item">
+                <h2>Moka</h2>
+                <p> </p>
+                <p class="price">₡2000</p>
+            </div>
+        </div>
+    
+        <!-- Cold Coffee Section -->
+        <div class="menu-section">
+            <h2>Café Fríos</h2>
+            <div class="menu-item">
+                <h2>Cold Brew</h2>
+                <p>Café extraído en frío, nunca calentado, 70% menos ácido que el café tradicional.</p>
+                <p class="price">₡2000</p>
+            </div>
+            <div class="menu-item">
+                <h2>Creamy Caramel Frapuccino</h2>
+                <p>Café extraído en frío, nunca calentado, 70% menos ácido que el café tradicional.</p>
+                <p class="price">₡2000</p>
+            </div>
+            <div class="menu-item">
+                <h2>Clásico</h2>
+                <p>Café helado clásico con o sin leche.</p>
+                <p class="price">₡2000</p>
+            </div>
+            <div class="menu-item">
+                <h2>Energizante</h2>
+                <p>Maca Cold Brew (energizante natural), cacao, plátano, leche y proteínas.</p>
+                <p class="price">₡4000</p>
+            </div>
+            <div class="menu-item">
+                <h2>Coco Cold</h2>
+                <p>Cold brew with coconut cream.</p>
+                <p class="price">₡2800</p>
+            </div>
+            <div class="menu-item">
+                <h2>Café Chay</h2>
+                <p>Café frío con crema de coco.</p>
+                <p class="price">₡2600</p>
+            </div>
+            <div class="menu-item">
+                <h2>Té de Limón</h2>
+                <p> </p>
+                <p class="price">₡2500</p>
+            </div>
+        </div>
+    </section>
+
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Smoothies Section -->
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/logocuppp.png" alt="Smoothie Logo">
+        </div>
+        <h1>Smoothies</h1>
+       
+    </section>
+
+    <section class="menu-container">
+        <div class="menu-item">
+            <h2>Babe Ruth</h2>
+            <p>Fresa, piña, banana, naranja, yogurt, chía y linaza.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Sunshine</h2>
+            <p>Melocotón, mango, banana, naranja, cúrcuma, jengibre y yogurt.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Red</h2>
+            <p>Leche de almendras, yogurt, banana, mantequilla de maní, canela y avena.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Peanut Butter</h2>
+            <p>Almond milk, yogurt, banana, peanut butter, cinnamon, and oats.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Breakfast Shake</h2>
+            <p>Leche de almendras, Banana, fresa, 25 gramos de proteína, avena y cold brew (opcional).</p>
+            <p class="price">₡4500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Green Machine</h2>
+            <p>Leche de almendras, kiwi, espinacas, col rizada y 25g de Proteína.</p>
+            <p class="price">₡4800</p>
+        </div>
+        <div class="menu-item">
+            <h2>Caribbean Dream</h2>
+            <p>Piña, Yogurt, Agua de Coco, Naranjas y Banana.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Koala</h2>
+            <p>Kiwi, Mango, Banana, Limón, Miel, y menta.</p>
+            <p class="price">₡3700</p>
+        </div>
+        <div class="menu-item">
+            <h2>Cocada</h2>
+            <p>Agua de coco, Carne de coco, Leche Condensada y un toque de Canela.</p>
+            <p class="price">₡3500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Nanda</h2>
+            <p>Papaya, cúrcuma, coco, miel y chai casero.</p>
+            <p class="price">₡3700</p>
+        </div>
+        <div class="menu-item">
+            <h2>Joe</h2>
+            <p>Leche de coco, mantequilla de maní, cacao y Banana.</p>
+            <p class="price">₡3700</p>
+        </div>
+    </section>
+    
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

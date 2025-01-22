@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Smoothies Section -->
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/arapalog.png" alt="Smoothie Logo">
+        </div>
+        <h1>Arepas</h1>
+       
+    </section>
+
+    <section class="menu-container">
+        <div class="menu-item">
+            <h2>Reina Pepiada</h2>
+            <p>Chicken salad with avocado</p>
+            <p class="price">₡2500</p>
+        </div>
+        <div class="menu-item">
+            <h2>Gordita</h2>
+            <p>Pulled pork with red pickled onions</p>
+            <p class="price">₡2600</p>
+        </div>
+        <div class="menu-item">
+            <h2>Catira</h2>
+            <p>Chicken with cheese</p>
+            <p class="price">₡2500</p>
+        </div>
+        <div class="menu-item">
+            <h2>LLanera</h2>
+            <p>Mashed beans with Venezuelan cheese</p>
+            <p class="price">₡2300</p>
+        </div>
+        <div class="menu-item">
+            <h2>Que Sera</h2>
+            <p>3 types of cheese</p>
+            <p class="price">₡2300</p>
+        </div>
+        <div class="menu-item">
+            <h2>Peluda</h2>
+            <p>Shredded meat and cheese</p>
+            <p class="price">₡2500</p>
+            
+        </div>
+    </section>
+
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>

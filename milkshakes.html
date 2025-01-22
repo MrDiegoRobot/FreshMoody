@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smoothies Menu</title>
+    <link rel="stylesheet" href="cafe.css"> 
+   
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <a href="index.html" class="logo">
+                    <img src="images/freshmoodylogo.jpg" alt="FreshMoody Logo" />
+                </a>
+                <h1>FreshMoody Cafe</h1>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- Navigation Menu -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Menú</a>
+                        <div class="dropdown-content">
+                            <a href="smoothies.html">Smoothies</a>
+                            <a href="milkshakes.html">Milkshakes</a>
+                            <a href="icecream.html">Ice Cream</a>
+                            <a href="sandwiches.html">Sandwiches</a>
+                            <a href="boba.html">Boba Tea</a>
+                            <a href="coffe.html">Coffee</a>
+                            <a href="arepas.html">Arepas</a>
+                            <a href="acai.html">Acai</a>
+                        </div>
+                    </li>
+                    <li><a href="aboutus.html">Nosotros</a></li>
+                    <li><a href="Contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Smoothies Section -->
+    <section class="menu-header">
+        <div class="menu-logo">
+            <img src="images/logomilk.png" alt="Smoothie Logo">
+        </div>
+        <h1>Milkshakes</h1>
+       
+    </section>
+
+    <section class="menu-container">
+      <!-- New Items -->
+    <div class="menu-item">
+        <h2>Monkey Business</h2>
+        <p>Plátanos Congelados, Helado de Vainilla, Salsa De Chocolate Y Crema Batida.</p>
+        <p class="price">₡3700</p>
+
+    </div>
+    <div class="menu-item">
+        <h2>Never is Too Much Chocolate</h2>
+        <p>Trocitos de Brownie, Helado de Chocolate, Salsa De Chocolate Y Crema Batida.</p>
+        <p class="price">₡3700</p>
+
+    </div>
+    <div class="menu-item">
+        <h2>Indulgence</h2>
+        <p>Pastel de chocolate, helado de vainilla y Crema Batida Con Lluvia De Chocolate.</p>
+        <p class="price">₡3900</p>
+    </div>
+    <div class="menu-item">
+        <h2>Mono Loco</h2>
+        <p>Pan De Banana Casero, Helado De Vainilla y crema batida.</p>
+        <p class="price">₡3900</p>
+    </div>
+    <div class="menu-item">
+        <h2>Bad Bunny</h2>
+        <p>Helado de vainilla, Nutella, Ferrero Rocher, y crema batida.</p>
+        <p class="price">₡4200</p>
+    </div>
+    <div class="menu-item">
+        <h2>Cappuccino</h2>
+        <p>Cold Brew concentrado, helado de vainilla, batido Crema, Trozos de Cacao y Canela.</p>
+        <p class="price">₡3600</p>
+    </div>
+    <div class="menu-item">
+        <h2>Matcha or Taro Milkshake</h2>
+        <p>Sabor Umami (Matcha Ceremonial Orgánico), Helado de vainilla y crema batida.</p>
+        <p class="price">₡3700</p>
+    </div>
+    <div class="menu-item">
+        <h2>Baileys</h2>
+        <p>Baileys, helado de vainilla y chocolate, Salsa De Chocolate Y Caramelo.</p>
+        <p class="price">₡4500</p>
+    </div>
+    <div class="menu-item">
+        <h2>Classic</h2>
+        <p>Elige tu sabor (vainilla, chocolate o Fresa) Crema Batida y Cereza.</p>
+        <p class="price">₡3000</p>
+    </div>
+    <div class="menu-item">
+        <h2>Classic Oreo</h2>
+        <p>Galletas Oreo recién trituradas con helado de vainilla y crema batida.</p>
+        <p class="price">₡3500</p>
+    </div>
+    <div class="menu-item">
+        <h2>Snicker</h2>
+        <p>Vanilla and chocolate ice cream, peanut butter, fudge de caramel, chocolate, and peanut.</p>
+        <p class="price">₡3900</p>
+    </div>
+    <div class="menu-item">
+        <h2>Torta Chilena</h2>
+        <p>Helado de vainilla, crema de caramelo y galleta.</p>
+        <p class="price">₡3600</p>
+    </div>
+        
+    </section>
+
+
+       
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FreshMoody Cafe. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+
+</body>
+</html>
